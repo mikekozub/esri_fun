@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import ArcGIS
 
 class ViewController: UIViewController {
+    
+    var mapView = AGSMapView(frame: UIScreen.main.bounds)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupMap()
     }
 
+    private func setupMap() {
+        mapView.map = AGSMap(basemapType: .darkGrayCanvasVector, latitude: 34.02700, longitude: -118.80543, levelOfDetail: 13)
+        view.addSubview(mapView)
+    }
 
 }
 
